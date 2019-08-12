@@ -71,6 +71,25 @@ lista.agregarInicio("oscar3",59)
 lista.agregarInicio("oscar4",60)
 print("-----")
 lista.mostrar()
-        
+print("-----")
+lista.agregarFinal("kevin",41)
+lista.mostrar()
+print("-----")
+lista.agregarInicio("Karla",31)
+lista.mostrar()
+print("----")
+lista.eliminarFinal()
+lista.mostrar()
+print("----")
+lista.eliminarInicio()
+
+lista.eliminarInicio()
+
+lista.eliminarInicio()
+
+lista.eliminarInicio()
+
+lista.eliminarInicio()
+lista.mostrar()        
             
    

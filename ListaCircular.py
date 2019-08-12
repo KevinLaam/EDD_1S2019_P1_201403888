@@ -12,42 +12,40 @@ class ListaCircular():
     def estaVacia(self):
         return True if self.primero == None else False
 
-    def agregarInicio(self, usuario):
+    def agregar(self, usuario):
         nuevoNodo = Nodo(usuario)
         if(self.estaVacia()):
             self.primero = self.ultimo = nuevoNodo
+            self.primero.siguiente = self.primero
+            self.primero.anterior = self.ultimo
+            print("Se agrego dato1")
             return
+        self.ultimo.siguiente = nuevoNodo
         nuevoNodo.anterior = self.ultimo
         nuevoNodo.siguiente = self.primero
-        self.ultimo.siguiente = nuevoNodo
-        self.primero.anterior = nuevoNodo
-        self.primero = nuevoNodo
-    
-    def agregarFinal(self,usuario):
-        nuevoNodo = Nodo(usuario)
-        if(self.estaVacia()):
-            nuevoNodo.siguiente = nuevoNodo
-            nuevoNodo.anterior = nuevoNodo
-            self.primero = self.ultimo = nuevoNodo
-            return
-        nuevoNodo.anterior = self.ultimo
-        nuevoNodo.siguiente = self.primero
-        self.ultimo.siguiente = nuevoNodo
-        self.primero.anterior = nuevoNodo
         self.ultimo = nuevoNodo
+        self.primero.anterior = self.ultimo
+        print("Se agrego dato2")
+    
+    def eliminar(self):
+        
+    
+   
     
     
     
     def mostrar(self):
-        if(self.estaVacia()):
-            print("lista circular doble vacia")
-        else:
-            aux = self.primero
-            while(aux.siguiente != self.primero):
+        aux = self.primero
+        if(self.estaVacia() == False):
+            while(True):
                 print("usuario"+str(aux.usuario))
                 aux = aux.siguiente
+                if(aux == self.primero):
+                    break
+        else:
+            print("LIsta circular Vacia")
 
 circular = ListaCircular()
-circular.agregarInicio("kevin")
-print("Se agrego el dato")
+circular.agregar("kevin")
+circular.agregar("kevin2")
 circular.mostrar()

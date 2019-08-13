@@ -68,3 +68,23 @@ colita.agregar("marcos",2)
 colita.mostrar()
 
 
+
+contenido = "
+digraph D{
+rankdir=LR;
+labelloc="t";
+subgraph cluster_0{
+style=filled;
+color = lightgrey;
+node[shape=record];
+Nodofunciono[label="{funciono,100| }"style = filled, fillcolor = "purple:blue"];
+NodoNULL[label="NULL}"style = filled, fillcolor = "purple:blue"];
+Nodofunciono->NodoNULL;
+label = "Cola";
+}
+}
+"
+ruta = 'C:\\Users\\Kevin Lam\\Desktop\\Estructuras de Datos\\Practica1\\pila.dot'
+archivo = open(ruta,'w')
+archivo.write(contenido)
+archivo.close()            

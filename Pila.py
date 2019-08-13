@@ -50,7 +50,11 @@ pilita.desapilar()
 pilita.desapilar()
 pilita.mostrar()
 
-            
+contenido = "hola"
+ruta = 'C:\\Users\\Kevin Lam\\Desktop\\Estructuras de Datos\\Practica1\\pila.dot'
+archivo = open(ruta,'w')
+archivo.write(contenido)
+archivo.close()            
 
             
         

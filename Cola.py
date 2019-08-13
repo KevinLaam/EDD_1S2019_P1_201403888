@@ -12,8 +12,8 @@ class cola:
     def estaVacia(self):
         return True if self.primero == None else False
 
-    def agregar(self,nombre,punteo):
-        nuevoNodo = nodoCola(nombre,punteo)
+    def agregar(self,nom,punteo):
+        nuevoNodo = nodoCola(nom,punteo)
         if(self.estaVacia()):
             self.primero = nuevoNodo
             self.ultimo = self.primero
@@ -46,7 +46,37 @@ class cola:
             while(aux!= None):
                 print("usuario"+aux.nom+"Punteo"+str(aux.punteo))
                 aux = aux.siguiente
-                    
+    
+    def grafica(self):
+        ruta = 'C:\\Users\\Kevin Lam\\Desktop\\Estructuras de Datos\\Practica1\\Cola.dot'
+        archivo = open(ruta,'w')
+        archivo.write("digraph{\n")
+        archivo.write("rankdir=LR;\n")
+        archivo.write("labelloc=\"t\";\n")
+        archivo.write("subgraph cluster_0{\n")
+        archivo.write("style=filled;\n")
+        archivo.write("color = lightgrey;\n")
+        archivo.write("node[shape=record];\n")
+        archivo.write(self.crearNodos())
+        archivo.write(self.apuntadores(self.primero))
+        archivo.close() 
+
+    def crearNodos(self):
+        aux = self.ultimo
+        temporal = ""
+        while(aux != None):
+            temporal += "N"+aux.nom+"lam"+str(aux.punteo)+"[label=\"{ |("+aux.nom+","+str(aux.punteo)+") }\"style = filled, fillcolor = \"orange\"];\n"
+            aux = aux.siguiente
+        return temporal
+    def apuntadores(self,aux):
+      
+        temporal = ""
+        while(aux != None):
+            #temporal += "N"+str(aux.x)+"lam"+str(aux.y)+"->"+"N"+str(aux.siguiente.)+"lam"+str(aux.siguiente.)+";\n"
+            temporal += "N"+aux.nom+"lam"+str(aux.punteo)+"->"+"N"+aux.siguiente.nom
+            aux = aux.siguiente
+        return temporal
+                
 
 colita = cola()
 colita.agregar("krisha1",10)
@@ -69,22 +99,4 @@ colita.mostrar()
 
 
 
-contenido = "
-digraph D{
-rankdir=LR;
-labelloc="t";
-subgraph cluster_0{
-style=filled;
-color = lightgrey;
-node[shape=record];
-Nodofunciono[label="{funciono,100| }"style = filled, fillcolor = "purple:blue"];
-NodoNULL[label="NULL}"style = filled, fillcolor = "purple:blue"];
-Nodofunciono->NodoNULL;
-label = "Cola";
-}
-}
-"
-ruta = 'C:\\Users\\Kevin Lam\\Desktop\\Estructuras de Datos\\Practica1\\pila.dot'
-archivo = open(ruta,'w')
-archivo.write(contenido)
-archivo.close()            
+           

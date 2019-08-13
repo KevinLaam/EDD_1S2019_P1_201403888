@@ -1,7 +1,7 @@
 class nodoLista:
-    def __init__(self,nombre,score):
-        self.nombre = nombre
-        self.score = score
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
         self.siguiente = None
         self.anterior = None
 
@@ -13,8 +13,8 @@ class listaSimple:
     def estaVacia(self):
         return True if self.primero == None else False
 
-    def agregarInicio(self, nombre,score):
-        nuevoNodo = nodoLista(nombre,score)
+    def agregarInicio(self, x,y):
+        nuevoNodo = nodoLista(x,y)
         if(self.estaVacia()):
             self.primero = nuevoNodo
             self.ultimo = self.primero
@@ -23,8 +23,8 @@ class listaSimple:
         self.primero.anterior = nuevoNodo
         self.primero = nuevoNodo
     
-    def agregarFinal(self,nombre,score):
-        nuevoNodo = nodoLista(nombre,score)
+    def agregarFinal(self,x,y):
+        nuevoNodo = nodoLista(x,y)
         if(self.estaVacia()):
             self.primero = nuevoNodo
             self.ultimo = self.primero
@@ -60,36 +60,48 @@ class listaSimple:
         else:
             aux = self.primero
             while(aux!= None):
-                print("usuario"+str(aux.nombre)+"Punteo"+str(aux.score))
+                print("usuario"+str(aux.x)+"Punteo"+str(aux.y))
+                
                 aux = aux.siguiente
-                            
+     
+    def grafica(self):
+        ruta = 'C:\\Users\\Kevin Lam\\Desktop\\Estructuras de Datos\\Practica1\\ListaDoble.dot'
+        archivo = open(ruta,'w')
+        archivo.write("digraph{\n")
+        archivo.write("rankdir=LR;\n")
+        archivo.write("labelloc=\"t\";\n")
+        archivo.write("subgraph cluster_0{\n")
+        archivo.write("style=filled;\n")
+        archivo.write("color = lightgrey;\n")
+        archivo.write("node[shape=record];\n")
+        archivo.write(self.crearNodos())
+        archivo.write(self.apuntadores(self.primero))
+        archivo.close()            
+                
+    def crearNodos(self):
+        aux = self.primero
+        temporal = ""
+        while(aux != None):
+            temporal += "N"+str(aux.x)+"lam"+str(aux.y)+"[label=\"{ |("+str(aux.x)+","+str(aux.y)+") }\"style = filled, fillcolor = \"orange\"];\n"
+            aux = aux.siguiente
+        return temporal
+    def apuntadores(self,aux):
+      
+        temporal = ""
+        while(aux != None):
+            temporal += "N"+str(aux.x)+"lam"+str(aux.y)+"->"+"N"+str(aux.siguiente.)+"lam"+str(aux.siguiente.y)+";\n"
+            aux = aux.siguiente
+        return temporal
+                
             
 lista = listaSimple()
-lista.agregarInicio("oscar",57)
-lista.agregarInicio("oscar2",58)
-lista.agregarInicio("oscar3",59)
-lista.agregarInicio("oscar4",60)
+lista.agregarInicio(10,57)
+lista.agregarInicio(12,58)
+lista.agregarInicio(13,59)
+lista.agregarInicio(14,60)
 print("-----")
-lista.mostrar()
-print("-----")
-lista.agregarFinal("kevin",41)
-lista.mostrar()
-print("-----")
-lista.agregarInicio("Karla",31)
-lista.mostrar()
-print("----")
-lista.eliminarFinal()
-lista.mostrar()
-print("----")
-lista.eliminarInicio()
+lista.grafica()
 
-lista.eliminarInicio()
 
-lista.eliminarInicio()
-
-lista.eliminarInicio()
-
-lista.eliminarInicio()
-lista.mostrar()        
             
    

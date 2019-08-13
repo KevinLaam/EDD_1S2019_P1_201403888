@@ -1,0 +1,11 @@
+digraph{
+rankdir=LR;
+labelloc="t";
+subgraph cluster_0{
+style=filled;
+color = lightgrey;
+node[shape=record];
+N14lam60[label="{ |(14,60) }"style = filled, fillcolor = "orange"];
+N13lam59[label="{ |(13,59) }"style = filled, fillcolor = "orange"];
+N12lam58[label="{ |(12,58) }"style = filled, fillcolor = "orange"];
+N10lam57[label="{ |(10,57) }"style = filled, fillcolor = "orange"];

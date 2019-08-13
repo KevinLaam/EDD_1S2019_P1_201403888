@@ -2,14 +2,14 @@ import curses
 from curses import KEY_RIGHT, KEY_LEFT, KEY_DOWN, KEY_UP
 from random import randint
 
-WIDTH = 35
+WIDTH = 60
 HEIGHT = 20
 MAX_X = WIDTH - 2
 MAX_Y = HEIGHT - 2
-SNAKE_LENGTH = 5
+SNAKE_LENGTH = 3
 SNAKE_X = SNAKE_LENGTH + 1
 SNAKE_Y = 3
-TIMEOUT = 100
+TIMEOUT = 200
 
 class Snake(object):
     REV_DIR_MAP = {
@@ -147,6 +147,8 @@ if __name__ == '__main__':
         food.render()
 
         window.addstr(0, 5, snake.score)
+        window.addstr(0, 20, "Snake Reloaded")
+        
         event = window.getch()
 
         if event == 27:

@@ -1,0 +1,11 @@
+digraph{
+rankdir=LR;
+labelloc="t";
+subgraph cluster_0{
+style=filled;
+color = lightgrey;
+node[shape=record];
+Nkrisha4lam10[label="{ |(krisha4,10) }"style = filled, fillcolor = "orange"];
+Nkrisha3lam10[label="{ |(krisha3,10) }"style = filled, fillcolor = "orange"];
+Nkrisha2lam10[label="{ |(krisha2,10) }"style = filled, fillcolor = "orange"];
+Nkrisha1lam10[label="{ |(krisha1,10) }"style = filled, fillcolor = "orange"];

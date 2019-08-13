@@ -89,7 +89,7 @@ class listaSimple:
       
         temporal = ""
         while(aux != None):
-            temporal += "N"+str(aux.x)+"lam"+str(aux.y)+"->"+"N"+str(aux.siguiente.)+"lam"+str(aux.siguiente.y)+";\n"
+            temporal += "N"+str(aux.x)+"lam"+str(aux.y)+"->"+"N"+str(aux.siguiente)+"lam"+str(aux.siguiente.y)+";\n"
             aux = aux.siguiente
         return temporal
                 

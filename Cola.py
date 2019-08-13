@@ -69,11 +69,11 @@ class cola:
             aux = aux.siguiente
         return temporal
     def apuntadores(self,aux):
-      
+
         temporal = ""
         while(aux != None):
             #temporal += "N"+str(aux.x)+"lam"+str(aux.y)+"->"+"N"+str(aux.siguiente.)+"lam"+str(aux.siguiente.)+";\n"
-            temporal += "N"+aux.nom+"lam"+str(aux.punteo)+"->"+"N"+aux.siguiente.nom
+            temporal += "N"+aux.nom+"lam"+str(aux.punteo)+"->"+"N"+aux.siguiente.nom+"lam"+str(aux.siguiente.punteo)+";\n"
             aux = aux.siguiente
         return temporal
                 
@@ -85,17 +85,7 @@ colita.agregar("krisha3",10)
 colita.agregar("krisha4",10)
 print("-------------------------")
 colita.mostrar()
-colita.eliminar()
-
-colita.eliminar()
-
-colita.eliminar()
-
-colita.eliminar()
-print("------------------------")
-colita.mostrar()
-colita.agregar("marcos",2)
-colita.mostrar()
+colita.grafica()
 
 
 
